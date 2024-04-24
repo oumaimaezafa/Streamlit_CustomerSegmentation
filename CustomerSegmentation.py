@@ -2,12 +2,9 @@ import sklearn
 import pandas as pd
 import numpy as np
 import plotly.express as px
-from sklearn.cluster import KMeans
 import streamlit as st
-from datetime import datetime
 import plotly.graph_objs as go
 from plotly.offline import iplot
-from sklearn.preprocessing import StandardScaler
 from streamlit_card import card
 import joblib
 from sklearn.decomposition import PCA
@@ -21,7 +18,7 @@ menu = ["Business Understanding", "Cluster Understanding","Product Recommendatio
 choice = st.sidebar.selectbox('Menu', menu )
 if choice == 'Business Understanding':
   
-    data = pd.read_excel("data/Online-retail.xlsx")
+    data = pd.read_csv("data/Online-retail.csv")
 
     numberClient =df["CustomerID"].value_counts().sum()
 
@@ -193,7 +190,7 @@ elif choice == 'Cluster Understanding':
 
     # Définition des descriptions pour chaque cluster
     cluster_descriptions = {
-        "Monthly High-Spenders": "Ce groupe se caractérise par des clients qui effectuent des achats fréquents avec des montants de dépenses mensuelles élevés. Ils sont susceptibles d'être des clients fidèles et réguliers, contribuant significativement aux revenus de l'entreprise. Ils représentent une cible importante pour les offres de fidélisation et de récompenses.",
+        "Monthly High-Spenders": "Ce groupe se caractérise par des clients qui effectuent des achats fréquents avec des montants de dépenses mensuelles élevés. Ils sont susceptibles d'être des clients fidèles et réguliers, contribuant significativement aux revenus de l'entreprise. ",
         "Occasional High-Spenders": "Ces clients réalisent des achats moins fréquents par rapport aux Monthly High-Spenders, mais avec des montants de dépenses élevés lorsqu'ils achètent. Ils peuvent être des clients qui profitent des soldes, des promotions spéciales ou des événements saisonniers pour effectuer des achats importants. Cibler ce groupe avec des offres spéciales lors de périodes propices peut augmenter leur fréquence d'achat.",
         "High-Spending Churn Risk": "Ces clients ont des montants de dépenses élevés mais présentent un risque élevé de churn (résiliation) ou de perte en tant que clients. Il peut être nécessaire d'investir dans des stratégies de rétention et de service à la clientèle pour maintenir leur engagement et les fidéliser.",
         "Low-Spending Weekend Shoppers": "Ce groupe se compose de clients qui effectuent des achats de faible montant principalement pendant les week-ends. Bien qu'ils ne dépensent pas autant que les autres groupes, leur fréquence d'achat régulière peut en faire une cible intéressante pour les promotions et les offres spéciales du week-end. Ils sont susceptibles d'être réceptifs aux offres de week-end et peuvent être fidélisés en offrant des réductions  spéciaux lors de ces périodes.",
@@ -336,7 +333,7 @@ elif choice == 'Cluster Understanding':
     unsafe_allow_html=True
 )
         
-elif choice == 'Predict':
+elif choice == 'Product Recommendation':
      
 
         # Charger les données
