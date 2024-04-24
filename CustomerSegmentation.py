@@ -1,16 +1,10 @@
 import sklearn
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
 import plotly.express as px
 from sklearn.cluster import KMeans
-import pickle
 import streamlit as st
-import os
 from datetime import datetime
-import squarify
-import base64
 import plotly.graph_objs as go
 from plotly.offline import iplot
 from sklearn.preprocessing import StandardScaler
