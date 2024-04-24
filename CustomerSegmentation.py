@@ -177,7 +177,8 @@ if choice == 'Business Understanding':
 
 
 elif choice == 'Cluster Understanding':
-    st.title("Compréhension des clusters")
+    st.markdown("<h2 style='margin-bottom:0'>Compréhension des clusters</h2>", unsafe_allow_html=True)
+    st.header("", divider='rainbow')
 
     model = joblib.load("data/Kmeans.pkl")  # Assurez-vous de remplacer "chemin_vers_votre_modele.pkl" par le chemin de votre modèle .pkl
 
@@ -193,7 +194,7 @@ elif choice == 'Cluster Understanding':
         "Monthly High-Spenders": "Ce groupe se caractérise par des clients qui effectuent des achats fréquents avec des montants de dépenses mensuelles élevés. Ils sont susceptibles d'être des clients fidèles et réguliers, contribuant significativement aux revenus de l'entreprise. ",
         "Occasional High-Spenders": "Ces clients réalisent des achats moins fréquents par rapport aux Monthly High-Spenders, mais avec des montants de dépenses élevés lorsqu'ils achètent. Ils peuvent être des clients qui profitent des soldes, des promotions spéciales ou des événements saisonniers pour effectuer des achats importants. Cibler ce groupe avec des offres spéciales lors de périodes propices peut augmenter leur fréquence d'achat.",
         "High-Spending Churn Risk": "Ces clients ont des montants de dépenses élevés mais présentent un risque élevé de churn (résiliation) ou de perte en tant que clients. Il peut être nécessaire d'investir dans des stratégies de rétention et de service à la clientèle pour maintenir leur engagement et les fidéliser.",
-        "Low-Spending Weekend Shoppers": "Ce groupe se compose de clients qui effectuent des achats de faible montant principalement pendant les week-ends. Bien qu'ils ne dépensent pas autant que les autres groupes, leur fréquence d'achat régulière peut en faire une cible intéressante pour les promotions et les offres spéciales du week-end. Ils sont susceptibles d'être réceptifs aux offres de week-end et peuvent être fidélisés en offrant des réductions  spéciaux lors de ces périodes.",
+        "Low-Spending Weekend Shoppers": "Ce groupe se compose de clients qui effectuent des achats de faible montant principalement pendant les week-ends. Bien qu'ils ne dépensent pas autant que les autres groupes, leur fréquence d'achat régulière peut en faire une cible intéressante pour les promotions et les offres spéciales du week-end. Ils sont susceptibles d'être réceptifs aux offres de week-end et peuvent être fidélisés en offrant des réductions  lors de ces périodes.",
     }
 
     # Création de deux colonnes pour positionner les cartes sur la même ligne
@@ -202,14 +203,17 @@ elif choice == 'Cluster Understanding':
     # Affichage des cartes pour chaque cluster
     for cluster, color in class_colors.items():
         if cluster == "High-Spending Churn Risk" or cluster == "Low-Spending Weekend Shoppers":
-            col2.write(f"## {cluster}")
+            col2.write(f"### {cluster}")
             col2.markdown(f'<div style="background-color:{color};padding:10px;border-radius:5px;">{cluster_descriptions[cluster]}</div>', unsafe_allow_html=True)
         else:
-            col1.write(f"## {cluster}")
+            col1.write(f"### {cluster}")
             col1.markdown(f'<div style="background-color:{color};padding:10px;border-radius:5px;">{cluster_descriptions[cluster]}</div>', unsafe_allow_html=True)
 
     # Affichage des curseurs pour sélectionner les données du client
-    st.title("Entrez les données du client :")
+    st.header("", divider='rainbow')
+
+    st.markdown("<h2 style='margin-bottom:0'>Entrer les donnees de client :</h2>", unsafe_allow_html=True)
+
     col4, _, col5 = st.columns([1, 0.1, 1])  # Utilisation d'une colonne vide avec un ratio de largeur de 0.1 pour créer l'espace
 
     # Ajouter une marge à droite pour créer un espace entre les colonnes
