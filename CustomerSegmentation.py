@@ -67,7 +67,7 @@ if choice == 'Business Understanding':
                         locationmode='country names',
                         color=customer_counts.values,
                         color_continuous_scale='YlOrRd',  # Utilisation de l'échelle de couleurs YlOrRd
-                        title='Nombre de Customer ID par pays')
+                        title='Nombre of Customer  by country')
     fig3.update_layout(geo=dict(showcoastlines=True))
     
     # Calcul du nombre d'occurrences de chaque description unique et tri
@@ -223,7 +223,7 @@ elif choice == 'Cluster Understanding':
         days_since_last_purchase = st.slider("Jours depuis le dernier achat", 0, 1000)
         total_transactions = st.slider("Nombre total de transactions", 0, 1000)
         total_products_purchased = st.slider("Nombre total de produits achetés", 0, 500)
-        total_spend = st.slider("Total des dépenses", 0.0, 100.0)
+        total_spend = st.slider("Total des dépenses", 0.0, 1000.0)
         average_transaction_value = st.slider("Valeur moyenne de transaction", 0.0, 100.0)
         monthly_spending_mean = st.slider("Moyenne des dépenses mensuelles", 0.0, 100.0)
         monthly_spending_std = st.slider("Écart-type des dépenses mensuelles", 0.0, 100.0)
@@ -231,7 +231,7 @@ elif choice == 'Cluster Understanding':
     col5.markdown('<style>div.row-widget.stHorizontal { flex-direction: row-reverse; }</style>', unsafe_allow_html=True)
 
     with col5:
-        unique_products_purchased = st.slider("Nombre de produits uniques achetés", 0, 10)
+        unique_products_purchased = st.slider("Nombre de produits uniques achetés", 0, 1000)
         average_days_between_purchases = st.slider("Nombre moyen de jours entre les achats", 0.0, 10.0)
         day_of_week = st.slider("Jour de la semaine", 0, 6)
         hour = st.slider("Heure de la journée", 0, 23)
